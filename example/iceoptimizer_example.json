@@ -1,0 +1,57 @@
+{
+    "catalog": "lakehouse",
+    "metadata_location": "s3a://tmp/iceoptimizer",
+    "schemas": [
+        {
+            "schema_name": "sales",
+            "tables": [
+                {
+                    "table_name": "fct_smth_sales",
+                    "auto_optimize": true,
+                    "run_interval_days": 3
+                },
+                {
+                    "table_name": "dim_users",
+                    "rewrite_data_files": {
+                        "write.update.mode": "copy-on-read"
+                    },
+                    "rewrite_manifest_files": {
+                        "partial.delete": "true"
+                    },
+                    "rewrite_position_delete_files": {
+                        "options.example.conf": "copy-on-read"
+                    },
+                    "run_interval_days": 7
+                }
+            ]
+        },
+        {
+            "schema_name": "corporate",
+            "tables": [
+                {
+                    "table_list": ["example_table_1", "example_table_2"],
+                    "rewrite_manifest_files": {
+                        "partial.delete": "true",
+                        "example.rewrite": "5",
+                        "options.example.conf": "copy-on-read"
+                    },
+                    "run_interval_days": 5
+                }
+            ]
+        },
+        {
+            "schema_name": "finance",
+            "tables": [
+                {
+                    "table_list": ["example_table_finance", "example_table_finance"],
+                    "rewrite_data_files": {
+                        "partial.delete": "true",
+                        "example.rewrite": "5",
+                        "options.example.conf": "copy-on-read"
+                    },
+                    "run_interval_days": 5
+                }
+            ]
+        }
+    ]
+}
