@@ -2,7 +2,7 @@
 
 ## Overview
 **IceOptimizer** is a lightweight and modular framework that simplifies optimization of **Apache Iceberg** tables.  
-It allows you to define **optimization tasks** for multiple catalogs, schemas, and tables in a **single configuration file**, with fine-grained control over the optimization strategies and schedules.
+It allows you to define **optimization tasks** for multiple catalogs, schemas, and tables in a **single or multiple configuration files**, with fine-grained control over the optimization strategies and schedules.
 
 The goal is to make table maintenance **easy, configurable, and automatable** without having to manually run Spark or Trino commands for every table.
 
